@@ -22,7 +22,8 @@ wss.on("connection", async (ws, req) => {
 
     // receiving msgs from clients
     ws.on("message", (message) => {
-        console.log("Server: Recerived msg from client ", message);
+        const parsedMessage = message.toString();
+        console.log("Server: Recerived msg from client ", parsedMessage);
         // sending this msg back to the client
         ws.send(`Hello client, you sent -> ${message}`);
     });
