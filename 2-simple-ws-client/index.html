@@ -2,10 +2,15 @@
     <head>
         <title>Simple WS Client</title>
         <script>
+            // in-built ws feature
             const webSocket = new WebSocket("ws://localhost:3000");
+
+            // sending client msg to the ws server
             function sendMessage() {
                 webSocket.send(document.getElementById("inputbox").value);
             }
+
+            // handling server msgs
             webSocket.onmessage = function (event) {
                 document.getElementById("serverMessages").appendChild(document.createTextNode(event.data));
                 document.getElementById("serverMessages").appendChild(document.createElement("br"));
